@@ -91,8 +91,10 @@ nav ul li a:hover {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                url('https://source.unsplash.com/random/1200x600/?cinema') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
     height: 70vh;
     display: flex;
     align-items: center;
@@ -133,6 +135,9 @@ nav ul li a:hover {
     background: #b8070f;
 }
 
+.cta-button:active {
+    background: #2d3748;
+}
 /* Movies Section */
 .section-title {
     font-size: 28px;

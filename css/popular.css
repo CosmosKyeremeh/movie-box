@@ -1,0 +1,41 @@
+/* New & Popular page specific styles */
+.popular-page .page-header {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    padding: 80px 0 40px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.popular-page .page-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.popular-page .trending-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #e50914;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.popular-page .new-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #00c853;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.popular-page .card-with-badge {
+    position: relative;
+}

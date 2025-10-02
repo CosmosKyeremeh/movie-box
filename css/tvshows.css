@@ -1,0 +1,36 @@
+/* TV Shows page specific styles */
+.tvshows-page .page-header {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    padding: 80px 0 40px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.tvshows-page .page-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.tvshows-page .tv-show-card {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.tvshows-page .tv-show-banner {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.tvshows-page .tv-show-info {
+    padding: 15px;
+    background: #1a1f2e;
+}
+
+.tvshows-page .season-info {
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}

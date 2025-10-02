@@ -1,0 +1,44 @@
+/* Movies page specific styles */
+.movies-page .page-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 80px 0 40px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.movies-page .page-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.movies-page .page-subtitle {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.movies-page .filters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.movies-page .filter-btn {
+    background: #2d3748;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.movies-page .filter-btn:hover,
+.movies-page .filter-btn.active {
+    background: #e50914;
+    transform: translateY(-2px);
+}

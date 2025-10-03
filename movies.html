@@ -1,119 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movies - MovieBox</title>
 
-    <link rel="stylesheet" href="css/main_styles.css">
-    <link rel="stylesheet" href="css/movies.css">
+    <link rel="stylesheet" href="css/main_styles.css" />
+    <link rel="stylesheet" href="css/movies.css" />
 
-        <link rel="icon" href="images/ghprofit.ico">
-</head>
-<body class="movies-page">
+    <link rel="icon" href="images/ghprofit.ico" />
+  </head>
+  <body class="movies-page">
     <header>
-        <div class="container">
-            <div class="header-content">
-                <a href="main.html" class="logo">Movie<span>Box</span></a>
-                <nav>
-                    <ul>
-                        <li><a href="main.html">Home</a></li>
-                        <li><a href="movies.html" class="active">Movies</a></li>
-                        <li><a href="tvshows.html">TV Shows</a></li>
-                        <li><a href="popular.html">New & Popular</a></li>
-                        <li><a href="mylist.html">My List</a></li>
-                    </ul>
-                </nav>
-                <div class="search-bar">
-                    <input type="text" placeholder="Search movies...">
-                    <button>🔍</button>
-                </div>
-            </div>
+      <div class="container">
+        <div class="header-content">
+          <a href="main.html" class="logo">Movie<span>Box</span></a>
+          <nav>
+            <ul>
+              <li><a href="main.html">Home</a></li>
+              <li><a href="movies.html" class="active">Movies</a></li>
+              <li><a href="tvshows.html">TV Shows</a></li>
+              <li><a href="popular.html">New & Popular</a></li>
+              <li><a href="mylist.html">My List</a></li>
+            </ul>
+          </nav>
+          <div class="search-bar">
+            <input type="text" placeholder="Search movies..." />
+            <button>🔍</button>
+          </div>
         </div>
+      </div>
     </header>
 
     <section class="page-header">
-        <div class="container">
-            <h1 class="page-title">All Movies</h1>
-            <p class="page-subtitle">Discover thousands of movies across all genres and eras</p>
-        </div>
+      <div class="container">
+        <h1 class="page-title">All Movies</h1>
+        <p class="page-subtitle">
+          Discover thousands of movies across all genres and eras
+        </p>
+      </div>
     </section>
 
     <main class="container">
-        <div class="filters">
-            <button class="filter-btn active">All</button>
-            <button class="filter-btn">Action</button>
-            <button class="filter-btn">Comedy</button>
-            <button class="filter-btn">Drama</button>
-            <button class="filter-btn">Horror</button>
-            <button class="filter-btn">Sci-Fi</button>
-            <button class="filter-btn">Romance</button>
+      <div class="filters">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Action</button>
+        <button class="filter-btn">Comedy</button>
+        <button class="filter-btn">Drama</button>
+        <button class="filter-btn">Horror</button>
+        <button class="filter-btn">Sci-Fi</button>
+        <button class="filter-btn">Romance</button>
+      </div>
+
+      <section>
+        <h2 class="section-title">Featured Movies</h2>
+        <div class="movies-grid" id="movies-container">
+          <!-- Movies will be loaded here by JavaScript -->
         </div>
+      </section>
 
-        <section>
-            <h2 class="section-title">Featured Movies</h2>
-            <div class="movies-grid" id="movies-container">
-                <!-- Movies will be loaded here by JavaScript -->
-            </div>
-        </section>
-
-        <section>
-            <h2 class="section-title">New Releases</h2>
-            <div class="movies-grid" id="new-releases">
-                <!-- New releases will be loaded here -->
-            </div>
-        </section>
+      <section>
+        <h2 class="section-title">New Releases</h2>
+        <div class="movies-grid" id="new-releases">
+          <!-- New releases will be loaded here -->
+        </div>
+      </section>
     </main>
 
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Navigation</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="main.html">Movies</a></li>
-                        <li><a href="tvshows.html">TV Shows</a></li>
-                        <li><a href="popular.html">New & Popular</a></li>
-                        <li><a href="mylist.html">My List</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Genres</h3>
-                    <ul>
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Comedy</a></li>
-                        <li><a href="#">Drama</a></li>
-                        <li><a href="#">Horror</a></li>
-                        <li><a href="#">Sci-Fi</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Help</h3>
-                    <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Account</a></li>
-                        <li><a href="#">Media Center</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Follow Us</h3>
-                    <ul>
-                        <li><a href="#">Facebook</a></li>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">Instagram</a></li>
-                        <li><a href="#">YouTube</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 MovieBox. All rights reserved.</p>
-            </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Navigation</h3>
+            <ul>
+              <li><a href="main.html">Home</a></li>
+              <li><a href="main.html">Movies</a></li>
+              <li><a href="tvshows.html">TV Shows</a></li>
+              <li><a href="popular.html">New & Popular</a></li>
+              <li><a href="mylist.html">My List</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Genres</h3>
+            <ul>
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Comedy</a></li>
+              <li><a href="#">Drama</a></li>
+              <li><a href="#">Horror</a></li>
+              <li><a href="#">Sci-Fi</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Help</h3>
+            <ul>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Account</a></li>
+              <li><a href="#">Media Center</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Follow Us</h3>
+            <ul>
+              <li><a href="#">Facebook</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">YouTube</a></li>
+            </ul>
+          </div>
         </div>
+        <div class="copyright">
+          <p>&copy; 2023 MovieBox. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <script src="js/main.js"></script>
     <script src="js/movies.js"></script>
-</body>
+  </body>
 </html>

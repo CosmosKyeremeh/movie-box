@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MovieBox - Stream unlimited movies and TV shows. Watch anywhere, anytime.">
+    <title>MovieBox - Unlimited Movies & TV Shows</title>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main_styles.css">
+
+    <!-- Landing Page Styles -->
+    <link rel="stylesheet" href="css/landing.css">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="path/to/apple-touch-icon.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/ghprofit.ico">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e50914">
+</head>
+<body>
+    <!-- Header -->
+    <header class="landing-header">
+        <div class="container">
+            <a href="index.html" class="landing-logo">Movie<span>Box</span></a>
+            <nav class="landing-nav">
+                <a href="auth.html" class="nav-signin">Sign In</a>
+                <a href="main.html" class="nav-browse">Browse Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Random Background -->
+    <section class="landing-hero" id="hero-section">
+        <div class="hero-content">
+            <h1>Unlimited Movies, TV Shows, and More</h1>
+            <p>Watch anywhere. Cancel anytime. Stream thousands of titles on any device.</p>
+            <a href="main.html" class="hero-cta">Start Watching Now</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="features-container">
+            <div class="section-header">
+                <h2>Why Choose MovieBox?</h2>
+                <p>Everything you need for the perfect streaming experience</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🎬</span>
+                    <h3>Unlimited Entertainment</h3>
+                    <p>Access our vast library of movies and TV shows with new content added regularly.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📱</span>
+                    <h3>Watch Anywhere</h3>
+                    <p>Stream on your phone, tablet, laptop, and TV. Download to watch offline.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🚫</span>
+                    <h3>Cancel Anytime</h3>
+                    <p>No contracts or commitments. Cancel your subscription online with one click.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⭐</span>
+                    <h3>Personalized For You</h3>
+                    <p>Get recommendations based on what you watch and love.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Safe & Secure</h3>
+                    <p>Your data is protected with industry-leading security standards.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">👨‍👩‍👧‍👦</span>
+                    <h3>Family Friendly</h3>
+                    <p>Create profiles for kids with parental controls and age-appropriate content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>210+</h3>
+                <p>Movies</p>
+            </div>
+            <div class="stat-item">
+                <h3>55+</h3>
+                <p>TV Shows</p>
+            </div>
+            <div class="stat-item">
+                <h3>4K</h3>
+                <p>Ultra HD Quality</p>
+            </div>
+            <div class="stat-item">
+                <h3>24/7</h3>
+                <p>Support</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <h2>Ready to Start Your Journey?</h2>
+        <div class="cta-buttons">
+            <a href="auth.html" class="cta-primary">Get Started Free</a>
+            <a href="main.html" class="cta-secondary">Browse Content</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="main.html">Home</a></li>
+                    <li><a href="movies.html">Movies</a></li>
+                    <li><a href="popular.html">New & Popular</a></li>
+                    <li><a href="mylist.html">My List</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Account</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; <span id="current-year">2024</span> GhPROFIT MovieBox. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Random Hero Backgrounds -->
+    <script>
+        // Array of hero background images (8 different cinema-themed images)
+        const heroImages = [
+            'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1920&h=1080&fit=crop&q=80', // Cinema hall
+            'https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1920&h=1080&fit=crop&q=80', // Movie theater
+            'https://images.unsplash.com/photo-1574267432644-f610908a8963?w=1920&h=1080&fit=crop&q=80', // Film reels
+            'https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1920&h=1080&fit=crop&q=80', // Movie night
+            'https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?w=1920&h=1080&fit=crop&q=80', // Entertainment
+            'https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&h=1080&fit=crop&q=80', // Cinema lights
+            'https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=1920&h=1080&fit=crop&q=80', // Movie production
+            'https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?w=1920&h=1080&fit=crop&q=80'  // Cinema seats
+        ];
+
+        // Function to set random hero background
+        function setRandomHeroBackground() {
+            const heroSection = document.getElementById('hero-section');
+            if (heroSection) {
+                const randomIndex = Math.floor(Math.random() * heroImages.length);
+                const randomImage = heroImages[randomIndex];
+                heroSection.style.backgroundImage = `url('${randomImage}')`;
+                console.log('Hero background #' + (randomIndex + 1) + ' loaded');
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set random hero background
+            setRandomHeroBackground();
+
+            // Update copyright year
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            console.log('MovieBox landing page loaded successfully!');
+        });
+
+        //Change background every 10 seconds
+        
+         setInterval(setRandomHeroBackground, 10000);
+    </script>
+</body>
+</html>

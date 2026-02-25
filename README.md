@@ -2,7 +2,7 @@
 
 A modern movie and TV show streaming platform inspired by Netflix, built with vanilla JavaScript, HTML, and CSS.
 
-![MovieBox Preview](images/ghprofit.ico)
+![MovieBox Preview](images/movie-box.png)
 
 ---
 

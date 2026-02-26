@@ -1,300 +1,385 @@
-# 🎬 MovieBox
+# 🎬 MovieBox - Netflix-Inspired Streaming Platform
 
-A modern movie and TV show streaming platform inspired by Netflix, built with vanilla JavaScript, HTML, and CSS.
+A modern Progressive Web App (PWA) for browsing movies and TV shows, powered by The Movie Database (TMDB) API.
 
-![MovieBox Preview](images/movie-box.png)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![PWA](https://img.shields.io/badge/PWA-Enabled-success)
 
 ---
 
 ## 📖 About
 
-MovieBox is a streaming platform clone that I built to practice frontend development. It features a clean, responsive design with 210+ movies and 55+ TV shows, complete with search, filtering, and a "My List" feature to save your favorites.
+MovieBox is a Netflix-inspired streaming platform built with vanilla JavaScript, HTML, and CSS. It integrates with the TMDB API to provide access to **thousands of real movies and TV shows** with high-quality posters, ratings, and detailed information.
 
-This project demonstrates:
-- Modern JavaScript (ES6+)
-- Component-based architecture
-- Working with JSON data
-- Local storage (IndexedDB)
-- Responsive design
-- Progressive Web App features
+### **Live Demo:** [Coming Soon]
+### **Repository:** [github.com/CosmosKyeremeh/movie-box](https://github.com/CosmosKyeremeh/movie-box)
 
 ---
 
 ## ✨ Features
 
-- 🎬 **Browse** 210+ movies and 55+ TV shows
-- 🔍 **Search** content with instant results
-- 🎭 **Filter** by genre, year, and rating
-- ⭐ **Rate** movies and shows (1-5 stars)
-- 💾 **My List** - Save your favorites
-- 🌙 **Dark/Light Theme** toggle
-- 📱 **Responsive** - Works on mobile, tablet, and desktop
-- 🔌 **Works Offline** - Install as a Progressive Web App
+### 🎬 **Content Browsing**
+- **Thousands of Movies** - Browse popular, trending, and top-rated movies from TMDB
+- **TV Shows** - Explore popular series and currently airing shows
+- **Real-time Data** - All content fetched live from TMDB API
+- **High-Quality Posters** - Official movie posters from TMDB
+
+### 🔍 **Search & Discovery**
+- **Smart Search** - Search movies and TV shows as you type
+- **Genre Filtering** - Filter by Action, Comedy, Drama, Horror, Sci-Fi, Romance
+- **Trending Content** - See what's trending this week
+- **New Releases** - Browse newly released movies
+- **Top Rated** - Discover critically acclaimed content
+
+### 💾 **Personal Features**
+- **My List** - Save your favorite movies (stored offline in IndexedDB)
+- **Persistent Storage** - Your list survives page refreshes and offline mode
+- **Add/Remove** - Easy one-click add to list
+
+### 📱 **Progressive Web App**
+- **Installable** - Install as a native app on any device
+- **Offline Support** - Service Worker caches assets for offline browsing
+- **Responsive Design** - Works seamlessly on mobile, tablet, and desktop
+- **Fast Loading** - Optimized performance with caching strategies
+
+### 🎨 **User Experience**
+- **Dark Theme** - Eye-friendly dark interface
+- **Smooth Animations** - Polished hover effects and transitions
+- **Loading States** - Skeleton screens while content loads
+- **Error Handling** - Graceful fallbacks for failed API calls
 
 ---
 
-## 🚀 How to Run
+## 🚀 Quick Start
 
-### Quick Start
+### **Prerequisites**
+- TMDB API Key (free - see setup below)
+- Local web server (Python, Node.js, or VS Code Live Server)
+- Modern web browser (Chrome, Firefox, Safari, Edge)
 
-1. **Download or Clone this project**
-   ```bash
-   git clone https://github.com/yourusername/moviebox.git
-   cd moviebox
-   ```
+### **Installation**
 
-2. **Start a local server** (choose one):
+**1. Clone the Repository**
+```bash
+git clone https://github.com/CosmosKyeremeh/movie-box.git
+cd movie-box
+```
 
-   **Using Python:**
-   ```bash
-   python -m http.server 8000
-   ```
+**2. Get Your TMDB API Key**
+1. Go to [themoviedb.org](https://www.themoviedb.org/)
+2. Create a free account
+3. Go to Settings → API
+4. Request an API Key (choose "Developer")
+5. Copy your API Key
 
-   **Using Node.js:**
-   ```bash
-   npx http-server -p 8000
-   ```
+**3. Add Your API Key**
 
-   **Using VS Code:**
-   - Install "Live Server" extension
-   - Right-click `index.html` → "Open with Live Server"
+Open `js/config.js` and add your key:
+```javascript
+const config = {
+    TMDB_API_KEY: 'YOUR_API_KEY_HERE', // Paste your key here
+    BASE_URL: 'https://api.themoviedb.org/3',
+    IMAGE_BASE_URL: 'https://image.tmdb.org/t/p'
+};
+```
 
-3. **Open in browser:**
-   ```
-   http://localhost:8000
-   ```
+**4. Start Local Server**
 
-That's it! 🎉
+Choose one method:
 
-> ⚠️ **Important:** Don't open the HTML files directly (double-clicking won't work). You need a local server for the JavaScript modules to load properly.
+**Python:**
+```bash
+python -m http.server 8000
+```
+
+**Node.js:**
+```bash
+npx http-server -p 8000
+```
+
+**VS Code Live Server:**
+- Install "Live Server" extension
+- Right-click `index.html` → "Open with Live Server"
+
+**5. Open in Browser**
+```
+http://localhost:8000
+```
+
+That's it! You should see movies loading from TMDB 🎉
 
 ---
 
 ## 📁 Project Structure
 
 ```
-moviebox/
-├── index.html          # Landing page
-├── main.html           # Homepage with movies
-├── movies.html         # All movies page
-├── tvshows.html        # TV shows page
-├── popular.html        # Trending content
-├── mylist.html         # Saved favorites
-├── auth.html           # Sign in/Sign up page
+movie-box/
+├── index.html              # Landing page
+├── main.html               # Homepage with movie grid
+├── movies.html             # All movies page with filters
+├── tvshows.html            # TV shows page
+├── popular.html            # Trending & new releases
+├── mylist.html             # Saved favorites
+├── auth.html               # Sign in/Sign up UI
 │
-├── css/                # Stylesheets
-│   ├── main_styles.css
-│   ├── landing.css
-│   └── components/     # Component styles
+├── css/
+│   ├── main_styles.css     # Global styles
+│   ├── landing.css         # Landing page styles
+│   ├── auth.css            # Auth page styles
+│   └── ...more              # Page-specific styles
 │
 ├── js/
-│   ├── modules/        # Core functionality
-│   │   ├── api.js      # Fetch movies/shows
-│   │   ├── storage.js  # Save data
-│   │   ├── utils.js    # Helper functions
-│   │   ├── theme.js    # Dark/light mode
-│   │   └── pwa.js      # Offline support
+│   ├── config.js           # API key configuration
 │   │
-│   ├── components/     # UI components
-│   │   ├── MovieCard.js
-│   │   ├── Modal.js
-│   │   ├── SearchBar.js
-│   │   └── ...more
+│   ├── modules/            # Core functionality
+│   │   ├── api.js          # TMDB API integration
+│   │   ├── storage.js      # IndexedDB for My List
+│   │   ├── utils.js        # Helper functions
+│   │   ├── theme.js        # Dark/light theme
+│   │   └── pwa.js          # Service Worker registration
 │   │
-│   └── main.js, movies.js, etc.  # Page scripts
+│   ├── components/         # Reusable UI components
+│   │   ├── MovieCard.js    # Movie card rendering
+│   │   ├── Modal.js        # Modal dialogs
+│   │   ├── SearchBar.js    # Search functionality
+│   │   └── LoadingSkeleton.js  # Loading animations
+│   │
+│   └── main.js, movies.js, etc.  # Page-specific scripts
 │
-└── data/               # Movie/show data (JSON)
-    ├── movies.json     # 210 movies
-    ├── tvshows.json    # 55 TV shows
-    └── genres.json     # Genre list
+├── images/                 # Icons and assets
+├── manifest.json           # PWA manifest
+├── sw.js                   # Service Worker
+├── vercel.json             # Vercel deployment config
+├── .gitignore              # Git ignore file
+├── .env.example            # Environment variables template
+└── README.md               # This file
 ```
 
 ---
 
 ## 🎯 Key Technologies
 
-- **HTML5** - Semantic markup
-- **CSS3** - Grid, Flexbox, animations
-- **JavaScript (ES6+)** - Modules, async/await, classes
-- **IndexedDB** - Local database for My List
-- **Service Worker** - Offline support
-- **No frameworks!** - Pure vanilla JavaScript
+| Technology | Purpose |
+|-----------|---------|
+| **HTML5** | Semantic markup, PWA manifest |
+| **CSS3** | Grid, Flexbox, animations, responsive design |
+| **JavaScript (ES6+)** | Modules, async/await, classes, arrow functions |
+| **TMDB API** | Real movie and TV show data |
+| **IndexedDB** | Offline storage for My List feature |
+| **Service Workers** | Offline support and caching |
+| **PWA** | Installable, works offline |
+| **Vercel** | Deployment platform |
 
----
-
-## 🎨 Features Breakdown
-
-### 1. Movie/TV Show Catalog
-- Browse complete collection with posters and details
-- Click any movie to see full information in a modal
-- Beautiful card layouts with hover effects
-
-### 2. Smart Search
-- Type in the search bar
-- Results appear instantly as you type
-- Searches both movies and TV shows
-
-### 3. Advanced Filtering
-- Filter by genre (Action, Comedy, Drama, etc.)
-- Filter by year range
-- Filter by minimum rating
-- Sort by popularity, rating, or year
-
-### 4. My List
-- Click the "+" button on any movie/show
-- Items are saved permanently (even after closing browser)
-- Access your list from the navigation menu
-
-### 5. Continue Watching
-- Automatically tracks your viewing progress
-- Shows a progress bar on movie cards
-- Resume where you left off
-
-### 6. Theme Toggle
-- Switch between dark and light modes
-- Your preference is saved automatically
-- Smooth transition animations
-
----
-
-## 📱 Pages Overview
-
-| Page | What's There |
-|------|-------------|
-| **index.html** | Landing page with random hero backgrounds |
-| **main.html** | Homepage with Trending, Popular, Top Rated |
-| **movies.html** | All movies with genre filters |
-| **tvshows.html** | All TV shows with filters |
-| **popular.html** | Trending this week, new releases, top 10 |
-| **mylist.html** | Your saved favorites |
-| **auth.html** | Sign in/Sign up form (UI only) |
+**No frameworks!** Built with pure vanilla JavaScript for maximum learning value.
 
 ---
 
 ## 🔧 How It Works
 
-### Loading Movies
+### **1. API Integration**
 
-When you open a page, here's what happens:
-
-1. JavaScript loads the movie data from `data/movies.json`
-2. The API module fetches and caches the data
-3. MovieCard component creates the visual cards
-4. Cards are displayed on the page
-
-**Example code:**
+When you open a page:
 ```javascript
-// This is in js/main.js
-const movies = await movieAPI.getTrendingMovies(8);
-MovieCard.renderGrid(movies, container);
+// js/movies.js
+const data = await window.MovieBoxAPI.getPopularMovies(1);
+const movies = data.results; // Array of 20 movies from TMDB
+
+window.MovieCard.renderGrid(movies.slice(0, 12), container);
 ```
 
-### Saving to My List
+### **2. Movie Cards**
 
-When you click the "Add to List" button:
+Each movie card displays:
+- High-quality poster from TMDB
+- Movie title
+- Release year
+- Star rating (out of 10)
+- Brief overview
 
-1. Movie data is saved to IndexedDB
-2. A toast notification appears ("Added to My List!")
-3. The button changes to show it's saved
-4. Data persists even after closing the browser
+### **3. My List (IndexedDB)**
 
-### Search Function
-
-The search is debounced (waits 300ms after you stop typing):
-
+Click "+ Add to List" to save:
 ```javascript
-// Searches as you type
-const results = await movieAPI.search('action', 'all');
-// Returns: { movies: [...], shows: [...] }
+// Saved to IndexedDB (works offline!)
+await window.MovieBoxStorage.addToMyList(movie);
 ```
+
+### **4. Service Worker**
+
+Caches assets for offline use:
+- HTML pages
+- CSS stylesheets
+- JavaScript modules
+- Images and icons
+- TMDB API responses (temporarily)
+
+---
+
+## 📱 Pages Overview
+
+| Page | What's There | API Endpoints Used |
+|------|-------------|-------------------|
+| **index.html** | Landing page with hero | None (static) |
+| **main.html** | Trending, Popular, Top Rated | `/movie/popular`, `/trending/movie/week`, `/movie/top_rated` |
+| **movies.html** | All movies with genre filters | `/movie/popular`, `/movie/now_playing`, `/discover/movie` |
+| **tvshows.html** | Popular, Airing, Top Rated TV | `/tv/popular`, `/trending/tv/week`, `/tv/top_rated` |
+| **popular.html** | Trending, New Releases, Top 10 | `/trending/movie/week`, `/movie/now_playing`, `/movie/top_rated` |
+| **mylist.html** | Your saved favorites | IndexedDB (no API) |
+| **auth.html** | Sign in/Sign up forms | None (UI only) |
+
+---
+
+## 🎬 TMDB API Endpoints
+
+The app uses these TMDB endpoints:
+
+**Movies:**
+- `GET /movie/popular` - Popular movies
+- `GET /movie/top_rated` - Top rated movies
+- `GET /movie/now_playing` - Now playing in theaters
+- `GET /trending/movie/{time_window}` - Trending movies
+- `GET /discover/movie` - Discover movies by genre
+- `GET /search/movie` - Search movies
+
+**TV Shows:**
+- `GET /tv/popular` - Popular TV shows
+- `GET /tv/top_rated` - Top rated shows
+- `GET /trending/tv/{time_window}` - Trending shows
+- `GET /search/tv` - Search TV shows
+
+**Genres:**
+- `GET /genre/movie/list` - Get movie genres
+- `GET /genre/tv/list` - Get TV genres
 
 ---
 
 ## 🐛 Troubleshooting
 
-### Movies not loading?
+### **Movies Not Loading?**
 
-**Check 1:** Are you using a local server?
+**Check 1: API Key**
+- Open `js/config.js`
+- Verify your TMDB API key is correct
+- Test your key at: [TMDB API Docs](https://developers.themoviedb.org/3)
+
+**Check 2: Browser Console (F12)**
+```
+✅ GOOD: "Movies loaded successfully!"
+❌ BAD: "API Error: 401" (Invalid API key)
+❌ BAD: "MovieBoxAPI is not defined" (Scripts not loading)
+```
+
+**Check 3: Network Tab**
+- F12 → Network → Filter by "themoviedb"
+- Status should be **200** (success)
+- NOT **401** (unauthorized) or **404** (not found)
+
+**Check 4: Using Local Server?**
 ```
 ✅ http://localhost:8000
-❌ file:///C:/moviebox/index.html
+❌ file:///C:/movie-box/index.html  (Won't work!)
 ```
 
-**Check 2:** Do the data files exist?
-```bash
-ls data/
-# Should see: movies.json, tvshows.json, genres.json
-```
+### **Blank Page?**
 
-**Check 3:** Check browser console (F12)
-- Look for red error messages
-- Common error: "Failed to fetch data/movies.json"
-
-### Blank page?
-
-**Hard refresh:**
+Hard refresh:
 - Windows: `Ctrl + Shift + R`
 - Mac: `Cmd + Shift + R`
 
-### Search not working?
+### **"My List" Not Saving?**
 
-Make sure the SearchBar component is loaded in your HTML:
-```html
-<script src="js/components/SearchBar.js"></script>
-```
+- Check browser supports IndexedDB (all modern browsers do)
+- Check if Private/Incognito mode (storage disabled)
+- Clear browser cache and try again
 
 ---
 
-## 🎓 What I Learned
+## 🚀 Deployment
 
-Building this project taught me:
+### **Deploy to Vercel** (Recommended)
 
-- ✅ How to structure a large JavaScript project
-- ✅ Component-based architecture without frameworks
-- ✅ Working with JSON data and APIs
-- ✅ Browser storage (IndexedDB, localStorage)
-- ✅ Responsive design with CSS Grid and Flexbox
-- ✅ Progressive Web Apps and Service Workers
-- ✅ Debouncing and performance optimization
-- ✅ Clean, maintainable code organization
+**1. Install Vercel CLI**
+```bash
+npm install -g vercel
+```
+
+**2. Login**
+```bash
+vercel login
+```
+
+**3. Deploy**
+```bash
+vercel --prod
+```
+
+**4. Set Environment Variable**
+
+In Vercel Dashboard:
+- Go to your project → Settings → Environment Variables
+- Add: `VITE_TMDB_API_KEY` = `your_api_key_here`
+
+### **Deploy to Netlify**
+
+**1. Create netlify.toml**
+```toml
+[build]
+  publish = "."
+  command = ""
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+**2. Deploy**
+```bash
+npm install -g netlify-cli
+netlify deploy --prod
+```
+
+### **Deploy to GitHub Pages**
+
+```bash
+# Enable GitHub Pages in repo settings
+# Point to main branch
+# Your site will be live at: https://username.github.io/movie-box/
+```
 
 ---
 
 ## 🎨 Customization
 
-Want to make it your own? Here are some easy tweaks:
-
-### Change the Theme Color
+### **Change Theme Color**
 
 Edit `css/main_styles.css`:
 ```css
 :root {
-  --accent: #e50914;  /* Change this to your color! */
+  --accent-color: #e50914;  /* MovieBox red */
+  --dark-bg: #0f1419;
+  --card-bg: #1a1f2e;
 }
 ```
 
-### Add More Movies
+### **Adjust Movies Per Page**
 
-Edit `data/movies.json` and add:
-```json
-{
-  "id": 211,
-  "title": "Your Movie",
-  "year": 2024,
-  "rating": 8.5,
-  "poster": "poster-url",
-  "genres": ["Action", "Drama"],
-  "overview": "Movie description..."
-}
+Edit `js/movies.js`:
+```javascript
+// Show 20 movies instead of 12
+window.MovieCard.renderGrid(movies.slice(0, 20), container);
 ```
 
-### Change Hero Backgrounds
+### **Change Hero Backgrounds**
 
-Edit `index.html` around line 140:
+Edit `index.html` (around line 146):
 ```javascript
 const heroImages = [
-  'your-image-1.jpg',
-  'your-image-2.jpg'
+  'your-image-url-1.jpg',
+  'your-image-url-2.jpg'
 ];
 ```
 
@@ -302,70 +387,96 @@ const heroImages = [
 
 ## 📚 Code Examples
 
-### Display Movies
+### **Fetch Movies**
 ```javascript
-// Get movies
-const movies = await movieAPI.getMovies();
-
-// Show them on page
-MovieCard.renderGrid(movies, container, {
-  showOverview: true,
-  showRating: true
-});
+// Get popular movies
+const data = await MovieBoxAPI.getPopularMovies(1);
+console.log(data.results); // Array of 20 movies
 ```
 
-### Search
+### **Search**
 ```javascript
-const results = await movieAPI.search('inception', 'all');
-console.log(results.movies); // Array of matching movies
+const results = await MovieBoxAPI.searchMovies('inception');
+console.log(results.results); // Matching movies
 ```
 
-### Filter Movies
+### **Filter by Genre**
 ```javascript
-const filtered = await movieAPI.filter({
-  genres: ['Action'],
-  yearMin: 2020,
-  minRating: 7.5
-}, 'movie');
+const data = await MovieBoxAPI.getMoviesByGenre(28, 1); // Action movies
+console.log(data.results);
 ```
 
-### Save to My List
+### **Save to My List**
 ```javascript
-await storage.addToMyList(movie);
+await MovieBoxStorage.addToMyList(movie);
 ```
 
 ---
 
-## 🚀 Future Improvements
+## 🔐 Security
 
-Things I'd like to add:
+- ⚠️ **Never commit your API key to GitHub!**
+- ✅ API key is in `js/config.js` (in `.gitignore`)
+- ✅ Use environment variables for production
+- ✅ TMDB API has rate limits (protect your key)
 
-- [ ] User authentication (login/signup)
-- [ ] Video player to actually watch movies
-- [ ] User reviews and comments
+---
+
+## 📊 Performance
+
+| Metric | Value |
+|--------|-------|
+| **First Load** | 1-2 seconds (with API calls) |
+| **Cached Load** | <500ms |
+| **Movies Displayed** | ~60 on first load |
+| **API Calls/Page** | 2-3 per page |
+| **Image Sizes** | 500px width (optimized) |
+
+---
+
+## 🛣️ Roadmap
+
+### **Current Features** ✅
+- TMDB API integration
+- Movie & TV show browsing
+- Search & filtering
+- My List with IndexedDB
+- PWA support
+- Responsive design
+
+### **Planned Features** 🚧
+- [ ] User authentication (real login/signup)
+- [ ] Video trailers (YouTube integration)
+- [ ] User reviews & ratings
 - [ ] Recommendations based on watch history
-- [ ] Admin panel to manage content
-- [ ] Better mobile experience
+- [ ] Watchlist sharing
+- [ ] Dark/Light theme toggle
+
+### **Future Enhancements** 💭
+- [ ] Movie details page with cast & crew
+- [ ] Similar movies suggestions
+- [ ] Multi-language support
+- [ ] Advanced filtering (year, rating, runtime)
+- [ ] Infinite scroll pagination
 
 ---
 
 ## 🤝 Contributing
 
-Want to improve this project?
+Contributions are welcome! Here's how:
 
 1. Fork the repository
-2. Create a new branch (`git checkout -b feature/cool-feature`)
-3. Make your changes
-4. Commit (`git commit -m 'Add cool feature'`)
-5. Push (`git push origin feature/cool-feature`)
-6. Open a Pull Request
+2. Create a feature branch (`git checkout -b feature/cool-feature`)
+3. Commit your changes (`git commit -m 'Add cool feature'`)
+4. Push to the branch (`git push origin feature/cool-feature`)
+5. Open a Pull Request
 
-**Ideas for contributions:**
-- Add more movies/shows to the data files
-- Improve the UI/design
-- Fix bugs
-- Add new features
-- Improve documentation
+### **Contribution Ideas:**
+- Improve UI/UX design
+- Add new features from roadmap
+- Fix bugs or improve performance
+- Enhance documentation
+- Add unit tests
 
 ---
 
@@ -374,50 +485,79 @@ Want to improve this project?
 This project is open source and available under the [MIT License](LICENSE).
 
 **What this means:**
-- ✅ You can use it for personal projects
-- ✅ You can use it for commercial projects
-- ✅ You can modify it however you want
-- ✅ You can distribute it
-- ⚠️ Just keep the copyright notice
+- ✅ Use for personal projects
+- ✅ Use for commercial projects
+- ✅ Modify as you like
+- ✅ Distribute freely
+- ⚠️ Keep copyright notice
 
 ---
 
-## 💡 Credits
+## 💡 What I Learned
 
-**Built by:** GhPROFIT
+Building this project taught me:
+- ✅ Integrating with external APIs (TMDB)
+- ✅ Component-based architecture in vanilla JS
+- ✅ IndexedDB for offline storage
+- ✅ Service Workers and PWA concepts
+- ✅ Responsive design with CSS Grid/Flexbox
+- ✅ Async JavaScript and error handling
+- ✅ Code organization in larger projects
+- ✅ Deployment to cloud platforms
 
-**Inspired by:** Netflix, Disney+, Amazon Prime Video
+---
 
-**Resources used:**
-- Movie data: Generated sample data
-- Images: Unsplash (hero backgrounds)
-- Icons: Emoji icons built into the system
+## 📞 Contact & Support
 
-**Special thanks to:**
-- The web development community
-- Stack Overflow (for debugging help!)
-- MDN Web Docs (best JavaScript reference)
+**Developer:** Cosmos Kyeremeh (GhPROFIT)  
+**Email:** kyeremehcosmos938@gmail.com  
+**LinkedIn:** [cosmos-kyeremeh-2b33882b3](https://www.linkedin.com/in/cosmos-kyeremeh-2b33882b3)  
+**GitHub:** [@CosmosKyeremeh](https://github.com/CosmosKyeremeh)
+
+### **Found a Bug?**
+Open an [Issue](https://github.com/CosmosKyeremeh/movie-box/issues)
+
+### **Have Questions?**
+Check the [Wiki](https://github.com/CosmosKyeremeh/movie-box/wiki) or open a Discussion
 
 ---
 
 ## 🌟 Show Your Support
 
-If you found this project helpful or learned something from it:
-
-- ⭐ Star this repository
-- 🍴 Fork it and make it your own
-- 📢 Share it with friends learning web development
-- 🐛 Report any bugs you find
+If you found this project helpful:
+- ⭐ Star the repository
+- 🍴 Fork and make it your own
+- 📢 Share with friends learning web development
+- 🐛 Report bugs or suggest features
 
 ---
 
-## 📞 Questions?
+## 🙏 Acknowledgments
 
-Have questions or found a bug?
+**Built by:** GhPROFIT (Cosmos Kyeremeh)
 
-- Open an [Issue](https://github.com/CosmosKyeremeh/moviebox/issues)
-- Email: kyeremehcosmos938@gmail.com
-- LinkedIn: [in/cosmos-kyeremeh-2b33882b3](https://www.linkedin.com/in/cosmos-kyeremeh-2b33882b3)
+**Powered by:**
+- [The Movie Database (TMDB) API](https://www.themoviedb.org/documentation/api)
+- [Unsplash](https://unsplash.com/) (hero background images)
+
+**Inspired by:**
+- Netflix
+- Disney+
+- Amazon Prime Video
+
+**Resources:**
+- [MDN Web Docs](https://developer.mozilla.org/)
+- [JavaScript.info](https://javascript.info/)
+- [CSS-Tricks](https://css-tricks.com/)
+
+---
+
+## 📖 Documentation
+
+For more detailed documentation, see:
+- [SETUP.md](SETUP.md) - Detailed setup instructions
+- [TMDB_INTEGRATION_GUIDE.md](TMDB_INTEGRATION_GUIDE.md) - API integration guide
+- [DEPLOYMENT.md](DEPLOYMENT.md) - Deployment guide
 
 ---
 
@@ -425,7 +565,7 @@ Have questions or found a bug?
 
 Thanks for checking out MovieBox! I hope you find it useful for learning or as a starting point for your own projects.
 
-Happy coding! 🚀
+**Happy coding!** 🚀🎬
 
 ---
 
@@ -433,16 +573,25 @@ Happy coding! 🚀
 
 ---
 
-## Quick Reference
+## Quick Reference Card
 
 ```bash
+# Clone
+git clone https://github.com/CosmosKyeremeh/movie-box.git
+
+# Add API key to js/config.js
+TMDB_API_KEY: 'your_key_here'
+
 # Start server
 python -m http.server 8000
 
 # Open browser
 http://localhost:8000
 
-# Check if working
-# - Open browser console (F12)
-# - Look for "MovieBox loaded successfully!"
+# Check console (F12)
+✅ "Movies loaded successfully!"
 ```
+
+---
+
+**⚡ Pro Tip:** Press `F12` in your browser to open DevTools and watch the API calls in the Network tab. You'll see real-time requests to TMDB!

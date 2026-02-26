@@ -1,0 +1,16 @@
+﻿# Environment Variables
+.env
+.env.local
+*.env
+node_modules/
+dist/
+build/
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+*.log
+.vercel
+js/config.js
+js/modules/api.js

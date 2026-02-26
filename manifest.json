@@ -1,0 +1,60 @@
+{
+  "name": "MovieBox - Your Ultimate Movie Streaming Platform",
+  "short_name": "MovieBox",
+  "description": "Stream unlimited movies and TV shows. Watch anywhere, anytime.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0f1419",
+  "theme_color": "#e50914",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "images/ghprofit.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "images/posters/movie-box.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "images/posters/movie-box.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["entertainment", "lifestyle"],
+  "screenshots": [
+    {
+      "src": "images/screenshots/home.png",
+      "sizes": "1280x720",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Browse Movies",
+      "short_name": "Movies",
+      "description": "Browse all movies",
+      "url": "/movies.html",
+      "icons": [{ "src": "images/icons/movies-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "TV Shows",
+      "short_name": "TV",
+      "description": "Browse TV shows",
+      "url": "/tvshows.html",
+      "icons": [{ "src": "images/icons/tv-icon.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "My List",
+      "short_name": "List",
+      "description": "View your watchlist",
+      "url": "/mylist.html",
+      "icons": [{ "src": "images/icons/list-icon.png", "sizes": "96x96" }]
+    }
+  ]
+}

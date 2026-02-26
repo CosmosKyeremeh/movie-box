@@ -6,9 +6,12 @@
     <title>TV Shows - MovieBox</title>
     <link rel="stylesheet" href="css/main_styles.css">
     <link rel="stylesheet" href="css/tvshows.css">
-
     <link rel="icon" href="images/ghprofit.ico">
-
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e50914">
+    <meta name="msapplication-TileColor" content="#e50914">
 </head>
 <body class="tvshows-page">
     <header>
@@ -103,12 +106,31 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 MovieBox. All rights reserved.</p>
+                <p>&copy; <span id="current-year">2024</span> GhPROFIT. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <!-- Core Modules - Load in this exact order! -->
+    <script src="js/config.js"></script>
+    <script src="js/modules/utils.js"></script>
+    <script src="js/modules/api.js"></script>
+    <script src="js/modules/storage.js"></script>
+    <script src="js/modules/pwa.js"></script>
+    <script src="js/modules/theme.js"></script>
+    
+    <!-- Components -->
+    <script src="js/components/LoadingSkeleton.js"></script>
+    <script src="js/components/MovieCard.js"></script>
+    <script src="js/components/Modal.js"></script>
+    
+    <!-- Page Script - LAST! -->
     <script src="js/tvshows.js"></script>
+    
+    <script>
+        // Update copyright year
+        const yearEl = document.getElementById('current-year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

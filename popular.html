@@ -3,14 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New & Popular - MovieBox</title>
+    <title>TV Shows - MovieBox</title>
     <link rel="stylesheet" href="css/main_styles.css">
-    <link rel="stylesheet" href="css/popular.css">
-
+    <link rel="stylesheet" href="css/tvshows.css">
     <link rel="icon" href="images/ghprofit.ico">
-
+    <link rel="apple-touch-icon" href="images/ghprofit.ico">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#e50914">
 </head>
-<body class="popular-page">
+<body class="tvshows-page">
     <header>
         <div class="container">
             <div class="header-content">
@@ -19,13 +22,13 @@
                     <ul>
                         <li><a href="main.html">Home</a></li>
                         <li><a href="movies.html">Movies</a></li>
-                        <li><a href="tvshows.html">TV Shows</a></li>
-                        <li><a href="popular.html" class="active">New & Popular</a></li>
+                        <li><a href="tvshows.html" class="active">TV Shows</a></li>
+                        <li><a href="popular.html">New & Popular</a></li>
                         <li><a href="mylist.html">My List</a></li>
                     </ul>
                 </nav>
                 <div class="search-bar">
-                    <input type="text" placeholder="Search...">
+                    <input type="text" placeholder="Search TV shows...">
                     <button>🔍</button>
                 </div>
             </div>
@@ -34,30 +37,30 @@
 
     <section class="page-header">
         <div class="container">
-            <h1 class="page-title">New & Popular</h1>
-            <p class="page-subtitle">Discover what's trending and newly released</p>
+            <h1 class="page-title">TV Shows</h1>
+            <p class="page-subtitle">Binge-watch your favorite series and discover new ones</p>
         </div>
     </section>
 
     <main class="container">
         <section>
-            <h2 class="section-title">🔥 Trending This Week</h2>
-            <div class="movies-grid" id="trending-now">
-                <!-- Trending content -->
+            <h2 class="section-title">Popular Series</h2>
+            <div class="movies-grid" id="popular-series">
+                <!-- TV shows will be loaded here -->
             </div>
         </section>
 
         <section>
-            <h2 class="section-title">🎬 New Releases</h2>
-            <div class="movies-grid" id="new-releases">
-                <!-- New releases -->
+            <h2 class="section-title">Currently Airing</h2>
+            <div class="movies-grid" id="airing-now">
+                <!-- Currently airing shows -->
             </div>
         </section>
 
         <section>
-            <h2 class="section-title">📈 Top 10 Today</h2>
-            <div class="movies-grid" id="top-10">
-                <!-- Top 10 content -->
+            <h2 class="section-title">Top Rated</h2>
+            <div class="movies-grid" id="top-rated-shows">
+                <!-- Top rated shows -->
             </div>
         </section>
     </main>
@@ -76,11 +79,13 @@
                     </ul>
                 </div>
                 <div class="footer-column">
-                    <h3>Categories</h3>
+                    <h3>TV Genres</h3>
                     <ul>
-                        <li><a href="#">Trending</a></li>
-                        <li><a href="#">New Releases</a></li>
-                        <li><a href="#">Top Rated</a></li>
+                        <li><a href="#">Drama</a></li>
+                        <li><a href="#">Comedy</a></li>
+                        <li><a href="#">Action</a></li>
+                        <li><a href="#">Reality</a></li>
+                        <li><a href="#">Documentary</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -88,6 +93,7 @@
                     <ul>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Account</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -100,12 +106,31 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 MovieBox. All rights reserved.</p>
+                <p>&copy; <span id="current-year">2024</span> GhPROFIT. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script src="js/popular.js"></script>
+    <!-- Core Modules - Load in this exact order! -->
+    <script src="js/config.js"></script>
+    <script src="js/modules/utils.js"></script>
+    <script src="js/modules/api.js"></script>
+    <script src="js/modules/storage.js"></script>
+    <script src="js/modules/pwa.js"></script>
+    <script src="js/modules/theme.js"></script>
+    
+    <!-- Components -->
+    <script src="js/components/LoadingSkeleton.js"></script>
+    <script src="js/components/MovieCard.js"></script>
+    <script src="js/components/Modal.js"></script>
+    
+    <!-- Page Script - LAST! -->
+    <script src="js/tvshows.js"></script>
+    
+    <script>
+        // Update copyright year
+        const yearEl = document.getElementById('current-year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
